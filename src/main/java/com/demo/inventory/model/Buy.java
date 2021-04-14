@@ -17,21 +17,21 @@ public class Buy {
 	private Long idBuy;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date dateBuy;
+	private Date datebuy;
 	
 	@Column(name="amount")
 	private int amount;
 	
-	@Column(name="total")
+	@Column(name="price")
 	private double price;
 	
 	@JsonIgnore
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="supplier")
 	private Person supplier;
 	
-	/*@OneToMany(mappedBy = "buyIdBuy", fetch = FetchType.EAGER)
-	private List<BuyDetail> buyDetail;*/
+	@OneToMany(mappedBy = "buyIdBuy", fetch = FetchType.EAGER)
+	private List<BuyDetail> buyDetail;
 
 	public Long getIdBuy() {
 		return idBuy;
@@ -41,12 +41,14 @@ public class Buy {
 		this.idBuy = idBuy;
 	}
 
-	public Date getDateBuy() {
-		return dateBuy;
+	
+
+	public Date getDatebuy() {
+		return datebuy;
 	}
 
-	public void setDateBuy(Date dateBuy) {
-		this.dateBuy = dateBuy;
+	public void setDatebuy(Date datebuy) {
+		this.datebuy = datebuy;
 	}
 
 	public int getAmount() {
@@ -72,7 +74,7 @@ public class Buy {
 	public void setSupplier(Person supplier) {
 		this.supplier = supplier;
 	}
-/*
+
 	public List<BuyDetail> getBuyDetail() {
 		return buyDetail;
 	}
@@ -80,6 +82,5 @@ public class Buy {
 	public void setBuyDetail(List<BuyDetail> buyDetail) {
 		this.buyDetail = buyDetail;
 	}
-*/
 	
 }

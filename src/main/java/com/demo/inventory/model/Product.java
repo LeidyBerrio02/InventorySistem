@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name="product")
 @Table(name="product")
 public class Product {
@@ -16,7 +18,7 @@ public class Product {
 	@Column(name="code")
 	private String code;
 	
-	@Column(name="nameProduct")
+	@Column(name="nameproduct")
 	private String nameProduct;
 	
 	@Column(name="amount")
@@ -25,11 +27,13 @@ public class Product {
 	@Column(name="price")
 	private double price;
 
-	/*@OneToMany(mappedBy = "productIdProduct", fetch = FetchType.EAGER)
+	@JsonIgnore
+	@OneToMany(mappedBy = "productIdProduct", fetch = FetchType.LAZY)
 	private List<BuyDetail> buyDetail;
 	
-	@OneToMany(mappedBy = "productIdProduct", fetch = FetchType.EAGER)
-	private List<SaleDetail> saleDetail;*/
+	@JsonIgnore
+	@OneToMany(mappedBy = "productIdProduct", fetch = FetchType.LAZY)
+	private List<SaleDetail> saleDetail;
 	
 	public Long getIdProduct() {
 		return idProduct;
@@ -71,7 +75,6 @@ public class Product {
 		this.price = price;
 	}
 
-	/*
 	public List<BuyDetail> getBuyDetail() {
 		return buyDetail;
 	}
@@ -87,7 +90,5 @@ public class Product {
 	public void setSaleDetail(List<SaleDetail> saleDetail) {
 		this.saleDetail = saleDetail;
 	}
-	
-*/	
 	
 }

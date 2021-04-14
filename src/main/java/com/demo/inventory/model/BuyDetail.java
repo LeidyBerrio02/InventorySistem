@@ -2,15 +2,24 @@ package com.demo.inventory.model;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity(name="buydetail")
+@Table(name="buydetail")
 public class BuyDetail {
 
-	/*
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="buy_idBuy")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="idbuydetail")
+	private Long idBuyDetail;
+	
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="buy_idbuy")
 	private Buy buyIdBuy;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="product_idProduct")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="product_idproduct")
 	private Product productIdProduct;
 	
 	@Column(name="amount")
@@ -39,6 +48,5 @@ public class BuyDetail {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
-	*/
 	
 }

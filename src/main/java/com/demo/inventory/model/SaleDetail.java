@@ -2,20 +2,39 @@ package com.demo.inventory.model;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity(name="saledetail")
+@Table(name="saledetail")
 public class SaleDetail {
 	
-	/*
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="idsaledetail")
+	private Long idSaleDetail;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="sale_idSale")
+	
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="sale_idsale")
 	private Sale saleIdSale;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="product_idProduct")
+	//@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="product_idproduct")
 	private Product productIdProduct;
 
 	@Column(name="amount")
 	private int amount;
+
+	
+	public Long getIdSaleDetail() {
+		return idSaleDetail;
+	}
+
+	public void setIdSaleDetail(Long idSaleDetail) {
+		this.idSaleDetail = idSaleDetail;
+	}
 
 	public Sale getSaleIdSale() {
 		return saleIdSale;
@@ -40,6 +59,5 @@ public class SaleDetail {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
-	*/
-	
+
 }

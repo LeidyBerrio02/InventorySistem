@@ -55,10 +55,15 @@ select idPerson , firstName , lastName , wallet, p.typeperson as "Type Person"
 from person per
 inner join typeperson p on p.idTypePerson = per.typeperson;
 
+SELECT * FROM person WhERE typePerson = 1 ;
+select * from product;
+select * from person;
 
 select idPerson , firstName , lastName , wallet, typeperson as supplier from persSon where typeperson = 2;
 
 select * from product;
+select * from person;
+select * from typeperson;
 select * from buy;
 select * from BuyDetail;
 select * from sale;
@@ -81,4 +86,16 @@ inner join product pro on pro.idproduct = sp.product_idproduct
 inner join typeperson t on t.idTypePerson = p.typeperson;
 
 
-alter table SaleDetail add column amount int;
+alter table saledetail add column idSaleDetail int not null primary key auto_increment;
+describe saledetail;
+drop table saledetail;
+select * from saledetail;
+
+create table saledetail(
+idSaleDetail int not null primary key auto_increment,
+sale_idSale int,
+product_idProduct int,
+amount int,
+constraint fk_idSale foreign key (sale_idSale) references Sale(idSale),
+constraint fk_idProduct foreign key (product_idProduct) references product(idProduct)
+);
