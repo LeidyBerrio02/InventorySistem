@@ -32,4 +32,10 @@ public class PersonServiceImp implements PersonService{
 		return personRepository.save(person);
 	}
 
+	@Override
+	public List<Person> listAllPerson() {
+		// TODO Auto-generated method stub
+		return personRepository.findAll();
+	}
+
 }

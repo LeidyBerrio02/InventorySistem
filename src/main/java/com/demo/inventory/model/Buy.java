@@ -30,8 +30,8 @@ public class Buy {
 	@JoinColumn(name="supplier")
 	private Person supplier;
 	
-	@OneToMany(mappedBy = "buyIdBuy", fetch = FetchType.EAGER)
-	private List<BuyDetail> buyDetail;
+	/*@OneToMany(mappedBy = "buyIdBuy", fetch = FetchType.EAGER)
+	private List<BuyDetail> buyDetail;*/
 
 	public Long getIdBuy() {
 		return idBuy;
@@ -72,7 +72,7 @@ public class Buy {
 	public void setSupplier(Person supplier) {
 		this.supplier = supplier;
 	}
-
+/*
 	public List<BuyDetail> getBuyDetail() {
 		return buyDetail;
 	}
@@ -80,6 +80,6 @@ public class Buy {
 	public void setBuyDetail(List<BuyDetail> buyDetail) {
 		this.buyDetail = buyDetail;
 	}
-
+*/
 	
 }

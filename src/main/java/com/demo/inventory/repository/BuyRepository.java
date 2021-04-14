@@ -10,6 +10,6 @@ import com.demo.inventory.model.Buy;
 @Repository
 public interface BuyRepository extends JpaRepository<Buy, Long>{
 
-	Optional<Buy> findById(Long idbuy);
+	Optional<Buy> findById(Long idBuy);
 	
 }

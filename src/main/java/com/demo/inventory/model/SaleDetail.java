@@ -2,9 +2,9 @@ package com.demo.inventory.model;
 
 import javax.persistence.*;
 
-@Entity(name="saleDetail")
-@Table(name="saleDetail")
 public class SaleDetail {
+	
+	/*
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="sale_idSale")
@@ -40,6 +40,6 @@ public class SaleDetail {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
-	
+	*/
 	
 }

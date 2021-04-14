@@ -25,11 +25,11 @@ public class Product {
 	@Column(name="price")
 	private double price;
 
-	@OneToMany(mappedBy = "productIdProduct", fetch = FetchType.EAGER)
+	/*@OneToMany(mappedBy = "productIdProduct", fetch = FetchType.EAGER)
 	private List<BuyDetail> buyDetail;
 	
 	@OneToMany(mappedBy = "productIdProduct", fetch = FetchType.EAGER)
-	private List<SaleDetail> saleDetail;
+	private List<SaleDetail> saleDetail;*/
 	
 	public Long getIdProduct() {
 		return idProduct;
@@ -71,6 +71,7 @@ public class Product {
 		this.price = price;
 	}
 
+	/*
 	public List<BuyDetail> getBuyDetail() {
 		return buyDetail;
 	}
@@ -87,6 +88,6 @@ public class Product {
 		this.saleDetail = saleDetail;
 	}
 	
-	
+*/	
 	
 }

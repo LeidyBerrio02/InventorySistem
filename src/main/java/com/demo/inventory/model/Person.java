@@ -1,8 +1,8 @@
 package com.demo.inventory.model;
 
-import java.util.List;
-
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name="person")
 @Table(name="person")
@@ -13,7 +13,7 @@ public class Person {
 	@Column(name="idperson")
 	private Long idPerson;
 	
-	@Column(name="fistname")
+	@Column(name="firstname")
 	private String firstName;
 	
 	@Column(name="lastname")
@@ -22,15 +22,16 @@ public class Person {
 	@Column(name="wallet")
 	private double wallet;
 	
+	//@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "typePerson")
+	@JoinColumn(name="typeperson")
 	private TypePerson typePerson;
 	
-	@OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
+	/*@OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
 	private List<Sale> salesCustomer;
 	
 	@OneToMany(mappedBy = "supplier", fetch = FetchType.EAGER)
-	private List<Buy> buySupplier;
+	private List<Buy> buySupplier;*/
 
 	public Long getIdPerson() {
 		return idPerson;
@@ -72,6 +73,7 @@ public class Person {
 		this.typePerson = typePerson;
 	}
 
+	/*
 	public List<Sale> getSalesCustomer() {
 		return salesCustomer;
 	}
@@ -88,6 +90,6 @@ public class Person {
 		this.buySupplier = buySupplier;
 	}
 	
-	
+	*/
 	
 }

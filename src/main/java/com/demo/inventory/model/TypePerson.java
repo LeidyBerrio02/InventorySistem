@@ -3,6 +3,7 @@ package com.demo.inventory.model;
 import java.util.List;
 
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name="typeperson")
 @Table(name="typeperson")
@@ -13,11 +14,13 @@ public class TypePerson {
 	@Column(name="idtypeperson")
 	private Long idTypePerson;
 	
-	@Column(name="typePerson")
+	@Column(name="typeperson")
 	private String typePerson;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "typePerson", fetch = FetchType.LAZY)
-	private List<Person> persons;	
+	private List<Person> persons;
+
 	
 	public Long getIdTypePerson() {
 		return idTypePerson;
