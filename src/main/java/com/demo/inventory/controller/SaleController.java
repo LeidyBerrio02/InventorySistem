@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.inventory.model.Sale;
+import com.demo.inventory.model.SaleDetail;
 import com.demo.inventory.service.SaleService;
 
 @RestController
@@ -20,6 +21,17 @@ public class SaleController {
 	@GetMapping
 	public List<Sale> listSale(){
 		return saleService.listSale();
+	}
+	
+	@GetMapping("/detail")
+	public List<SaleDetail> listDetail(){
+		return saleService.listDetail();
+	}
+	
+	
+	@GetMapping("/total")
+	public List<Sale> total(){
+		return saleService.total();
 	}
 	
 }

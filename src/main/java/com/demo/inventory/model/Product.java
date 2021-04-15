@@ -31,7 +31,7 @@ public class Product {
 	@OneToMany(mappedBy = "productIdProduct", fetch = FetchType.LAZY)
 	private List<BuyDetail> buyDetail;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	@OneToMany(mappedBy = "productIdProduct", fetch = FetchType.LAZY)
 	private List<SaleDetail> saleDetail;
 	

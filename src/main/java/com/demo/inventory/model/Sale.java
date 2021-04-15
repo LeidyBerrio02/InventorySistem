@@ -31,6 +31,7 @@ public class Sale {
 	@JoinColumn(name="customer")
 	private Person customer;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "saleIdSale", fetch = FetchType.EAGER)
 	private List<SaleDetail> saleDetail;
 

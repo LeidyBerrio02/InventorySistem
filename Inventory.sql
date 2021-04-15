@@ -86,10 +86,10 @@ inner join product pro on pro.idproduct = sp.product_idproduct
 inner join typeperson t on t.idTypePerson = p.typeperson;
 
 
-alter table saledetail add column idSaleDetail int not null primary key auto_increment;
+alter table sale drop column date_sale;
 describe saledetail;
-drop table saledetail;
-select * from saledetail;
+drop table buydetail;
+select * from buydetail;
 
 create table saledetail(
 idSaleDetail int not null primary key auto_increment,
@@ -99,3 +99,27 @@ amount int,
 constraint fk_idSale foreign key (sale_idSale) references Sale(idSale),
 constraint fk_idProduct foreign key (product_idProduct) references product(idProduct)
 );
+
+
+describe saledetail;
+select * from buy;
+select * from buydetail;
+
+create table Buydetail(
+idBuyDetail int not null primary key auto_increment,
+buy_idBuy int,
+product_idProduct int,
+amount int,
+constraint fk_idBuy foreign key (buy_idBuy) references Buy(idBuy),
+constraint fk_Product foreign key (product_idProduct) references product(idProduct)
+);
+
+select sale_idsale , product_idproduct , nameproduct, sum(price)
+from saledetail
+right join sale s on s.idsale =sale_idSale 
+right join product p on product_idproduct = idproduct
+where sale_idsale = 2 ;
+
+select * from product p inner join saledetail sd on sd.product_idproduct = p.idproduct;
+select * from sale;
+select * from saledetail;

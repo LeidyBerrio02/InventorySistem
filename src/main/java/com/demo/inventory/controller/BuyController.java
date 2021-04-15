@@ -21,4 +21,5 @@ public class BuyController {
 	public List<Buy> listBuy(){
 		return buyService.listBuy();
 	}
+	
 }

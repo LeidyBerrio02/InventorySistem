@@ -19,7 +19,7 @@ public class SaleDetail {
 	@JoinColumn(name="sale_idsale")
 	private Sale saleIdSale;
 	
-	//@JsonIgnore
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="product_idproduct")
 	private Product productIdProduct;
